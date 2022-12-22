@@ -19,7 +19,7 @@ module.exports = (sequelize, DataTypes) => {
   HR.init({
     name: DataTypes.STRING,
     email: DataTypes.STRING,
-    password: DataTypes.STRING,
+    password: DataTypes.TEXT,
     isAdmin: DataTypes.BOOLEAN,
   }, {
     sequelize,
