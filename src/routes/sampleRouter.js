@@ -65,7 +65,7 @@ router.patch('/', async (req, res) => {
     if (twelve) twelvE = 8.3;
     const sum = onE + twO + threE + fouR + fivE + siX + seveN + eighT + ninE + teN + eleveN + twelvE;
     const progress = Math.ceil(sum);
-    const id = 4; // Нужно написать контролируемый инпут в компоненте SampleForm через useState;
+    const id = 4; // Нужно написать контролируемый инпут в компоненте SampleForm через useState
     await Adaptation.update({
       progress, one: check1, two: check2, three: check3, four: check4, five: check5, six: check6, seven: check7, eight: check8, nine: check9, ten: check10, eleven: check11, twelve: check12,
     }, { where: { id } });
