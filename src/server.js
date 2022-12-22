@@ -28,6 +28,6 @@ app.use(session(sessionConfig));
 app.use(pathMiddleware);
 
 app.use('/', indexRouter);
-app.use('/api/v1', apiRouter);
+app.use('/api', apiRouter);
 
 app.listen(PORT, () => console.log(`App has started on port ${PORT}`));
