@@ -23,8 +23,12 @@ router.get('/myLists', (req, res) => {
   res.render('Layout');
 });
 
-router.get('/list', async (req, res) => {
-  const { id } = req.query;
+router.get('/list', (req, res) => {
+  res.render('Layout');
+});
+
+router.get('/sample/:id', async (req, res) => {
+  const { id } = req.params;
   const list = await Adaptation.findByPk(id);
   res.render('Layout', { list });
 });

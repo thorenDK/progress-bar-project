@@ -28,7 +28,7 @@ app.use(session(sessionConfig));
 app.use(pathMiddleware);
 
 app.use('/', indexRouter);
-app.use('/api/', apiRouter);
+app.use('/api', apiRouter);
 app.use('/sample', sampleRouter);
 
 app.listen(PORT, () => console.log(`App has started on port ${PORT}`));

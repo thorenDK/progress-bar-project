@@ -7,7 +7,9 @@ import { HR, Adaptation } from '../../db/models';
 const router = express.Router();
 
 router.post('/signup', async (req, res) => {
-  const { name, email, password: pass, check } = req.body;
+  const {
+    name, email, password: pass, check,
+  } = req.body;
   let isAdmin;
 
   if (check) {
@@ -15,7 +17,7 @@ router.post('/signup', async (req, res) => {
   } else {
     isAdmin = false;
   }
-  const checkEmail = await HR.findOne({ email });
+  const checkEmail = await HR.findOne({ where: { email } });
   if (!checkEmail && name && email && pass) {
     const password = await bcrypt.hash(pass, 7);
     const currHR = await HR.create({
@@ -85,7 +87,7 @@ router.post('/list', async (req, res) => {
       hr_id: req.session?.user?.id,
     });
     const randomId = v4();
-    const update = await Adaptation.update({ where: { id: currAdaptation.id } }, { url: `http://localhost:3000/list?id=${currAdaptation.id}&rid=${randomId}` });
+    await Adaptation.update({ url: `http://localhost:3000/sample?id=${currAdaptation.id}&rid=${randomId}` }, { where: { id: currAdaptation.id } });
     res.sendStatus(200);
   } else {
     res.sendStatus(401);
