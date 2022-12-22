@@ -34,6 +34,11 @@ export default function Reg() {
           <label className="form__label">Email</label>
         </div>
 
+        <div className="form__group">
+          <input name="password" type="password" className="form__input" placeholder=" " />
+          <label className="form__label">Password</label>
+        </div>
+
         <div>
           <input className="check mb-3" type="checkbox" id="scales" name="check" defaultChecked={false} />
           <label htmlFor="scales">Admin</label>
