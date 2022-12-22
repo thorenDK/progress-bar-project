@@ -13,7 +13,7 @@ router.post('/signup', async (req, res) => {
   } else {
     isAdmin = check;
   }
-  const checkEmail = await HR.findOne({ email });
+  const checkEmail = await HR.findOne({ where: { email } });
   if (!checkEmail && name && email && pass) {
     const password = await bcrypt.hash(pass, 7);
     const currHR = await HR.create({
