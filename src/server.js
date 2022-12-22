@@ -6,6 +6,7 @@ import path from 'path';
 
 import indexRouter from './routes/indexRouter';
 import apiRouter from './routes/apiRouter';
+import sampleRouter from './routes/sampleRouter';
 import jsxRender from './utils/jsxRender';
 import sessionConfig from './middlewares/myMiddleware';
 import pathMiddleware from './middlewares/pathMiddleware';
@@ -29,5 +30,6 @@ app.use(pathMiddleware);
 
 app.use('/', indexRouter);
 app.use('/api/', apiRouter);
+app.use('/sample', sampleRouter);
 
 app.listen(PORT, () => console.log(`App has started on port ${PORT}`));

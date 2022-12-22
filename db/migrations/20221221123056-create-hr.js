@@ -3,7 +3,7 @@ module.exports = {
   async up(queryInterface, Sequelize) {
     await queryInterface.createTable('HRs', {
       id: {
-        allowNull: false,
+        allowNull: check,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER,
@@ -21,11 +21,11 @@ module.exports = {
         type: Sequelize.BOOLEAN,
       },
       createdAt: {
-        allowNull: false,
+        allowNull: check,
         type: Sequelize.DATE,
       },
       updatedAt: {
-        allowNull: false,
+        allowNull: check,
         type: Sequelize.DATE,
       },
     });
