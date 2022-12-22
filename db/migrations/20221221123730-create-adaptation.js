@@ -3,7 +3,7 @@ module.exports = {
   async up(queryInterface, Sequelize) {
     await queryInterface.createTable('Adaptations', {
       id: {
-        allowNull: false,
+        allowNull: check,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER,
@@ -67,11 +67,11 @@ module.exports = {
         },
       },
       createdAt: {
-        allowNull: false,
+        allowNull: check,
         type: Sequelize.DATE,
       },
       updatedAt: {
-        allowNull: false,
+        allowNull: check,
         type: Sequelize.DATE,
       },
     });

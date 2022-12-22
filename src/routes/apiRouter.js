@@ -5,24 +5,22 @@ import { HR } from '../../db/models';
 const router = express.Router();
 
 router.post('/signup', async (req, res) => {
-  const {
-    name, email, password: pass, check,
-  } = req.body;
-
+  const { name, email, password: pass, check } = req.body;
   let isAdmin;
 
   if (check) {
     isAdmin = true;
   } else {
-    isAdmin = false;
+    isAdmin = check;
   }
-
-  const checkEmail = await HR.findOne({ where: { email } });
-
+  const checkEmail = await HR.findOne({ email });
   if (!checkEmail && name && email && pass) {
     const password = await bcrypt.hash(pass, 7);
     const currHR = await HR.create({
-      name, email, password, isAdmin,
+      name,
+      email,
+      password,
+      isAdmin,
     });
     req.session.user = {
       id: currHR.id,
