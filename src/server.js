@@ -10,7 +10,7 @@ import jsxRender from './utils/jsxRender';
 import sessionConfig from './middlewares/myMiddleware';
 import pathMiddleware from './middlewares/pathMiddleware';
 import listRouter from './routes/listRouter';
-import myListRouter from './routes/MyListRoter';
+import myListRouter from './routes/MyListRouter';
 
 require('dotenv').config();
 

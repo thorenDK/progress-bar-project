@@ -13,13 +13,22 @@ export default function AllLists() {
 
   return (
     <>
+      <div className="form">
+        <h1 className="form__title">Все листки адаптации</h1>
+      </div>
       <div />
       {lists?.map((el) => (
-        <div key={el.id} className="card" style={{ width: '18rem' }}>
-          <img src={el.name} className="card-img-top" alt="..." />
-          <div className="card-body">
-            <h5 className="card-title">{el.progress}</h5>
-          </div>
+        <div
+          key={el.id}
+          style={{
+            width: '200px', display: 'flex', columnGap: '8px', justifyContent: 'center', padding: '10px', border: '1px solid black', borderRadius: '15px',
+          }}
+        >
+          <p className="card-title">{el.name}</p>
+          <p className="card-title">
+            {el.progress}
+            %
+          </p>
         </div>
       ))}
     </>

@@ -7,6 +7,7 @@ import AllLists from './AllLists';
 import MyLists from './MyLists';
 
 export default function App({ user }) {
+  console.log(user);
   return (
     <>
       <NavBar user={user} />
