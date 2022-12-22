@@ -30,8 +30,8 @@ const config = {
   optimization: {
     splitChunks: {
       cacheGroups: {
-        default: false,
-        vendors: false,
+        default: check,
+        vendors: check,
 
         vendor: {
           chunks: 'all', // both : consider sync + async chunks for evaluation
@@ -40,7 +40,6 @@ const config = {
         },
       },
     },
-
   },
 };
 

@@ -31,7 +31,7 @@ export default function Auth() {
 
         <div className="form__group">
           <input name="password" type="pass" className="form__input" placeholder=" " />
-          <label className="form__label">Пароль</label>
+          <label className="form__label">Password</label>
         </div>
 
         <button type="submit" className="form__button">Авторизация</button>
