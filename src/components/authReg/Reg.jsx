@@ -26,17 +26,17 @@ export default function Reg() {
 
         <div className="form__group">
           <input name="name" type="text" className="form__input" placeholder=" " />
-          <label className="form__label">Имя</label>
+          <label className="form__label">Name</label>
         </div>
 
         <div className="form__group">
           <input name="email" type="email" className="form__input" placeholder=" " />
-          <label className="form__label">Адрес электронной почты</label>
+          <label className="form__label">Email</label>
         </div>
 
         <div className="form__group">
           <input name="password" type="password" className="form__input" placeholder=" " />
-          <label className="form__label">Пароль</label>
+          <label className="form__label">Password</label>
         </div>
 
         <div>

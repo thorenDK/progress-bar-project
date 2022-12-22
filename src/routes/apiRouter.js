@@ -8,13 +8,17 @@ router.post('/signup', async (req, res) => {
   const {
     name, email, password: pass, check,
   } = req.body;
+
   let isAdmin;
+
   if (check) {
     isAdmin = true;
   } else {
     isAdmin = false;
   }
-  const checkEmail = await HR.findOne({ email });
+
+  const checkEmail = await HR.findOne({ where: { email } });
+
   if (!checkEmail && name && email && pass) {
     const password = await bcrypt.hash(pass, 7);
     const currHR = await HR.create({
