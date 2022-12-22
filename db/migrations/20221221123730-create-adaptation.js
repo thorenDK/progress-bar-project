@@ -3,7 +3,7 @@ module.exports = {
   async up(queryInterface, Sequelize) {
     await queryInterface.createTable('Adaptations', {
       id: {
-        allowNull: check,
+        allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER,
@@ -21,40 +21,40 @@ module.exports = {
         type: Sequelize.INTEGER,
       },
       one: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.BOOLEAN,
       },
       two: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.BOOLEAN,
       },
       three: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.BOOLEAN,
       },
       four: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.BOOLEAN,
       },
       five: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.BOOLEAN,
       },
       six: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.BOOLEAN,
       },
       seven: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.BOOLEAN,
       },
       eight: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.BOOLEAN,
       },
       nine: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.BOOLEAN,
       },
       ten: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.BOOLEAN,
       },
       eleven: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.BOOLEAN,
       },
       twelve: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.BOOLEAN,
       },
       hr_id: {
         type: Sequelize.INTEGER,
@@ -67,11 +67,11 @@ module.exports = {
         },
       },
       createdAt: {
-        allowNull: check,
+        allowNull: false,
         type: Sequelize.DATE,
       },
       updatedAt: {
-        allowNull: check,
+        allowNull: false,
         type: Sequelize.DATE,
       },
     });
