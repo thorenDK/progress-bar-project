@@ -64,12 +64,16 @@ router.get('/logout', (req, res) => {
 });
 
 router.post('/list', async (req, res) => {
-  const { name, email } = req.body;
+  const {
+    name, email, hrsname, progress,
+  } = req.body;
   const checkEmail = await Adaptation.findOne({ where: { email } });
   if (!checkEmail && name && email) {
     const currAdaptation = await Adaptation.create({
       name,
       email,
+      hrsname,
+      progress,
       one: false,
       two: false,
       three: false,

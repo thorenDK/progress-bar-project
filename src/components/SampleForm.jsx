@@ -37,7 +37,7 @@ export default function SampleForm({ list, path }) {
           <p>И добро пожаловать в команду Высокогорья!</p>
           <p>
             Впереди нас ждет интересное путешествие в мир нашей компании, и
-            самым главным проводником будет - {oneList?.hr_id}
+            самым главным проводником будет - {oneList?.hrsname}
           </p>
           <p>
             Мы подготовили для тебя чек-лист на первый день. Процесс выполнения
@@ -126,6 +126,7 @@ export default function SampleForm({ list, path }) {
                 // onChange={submitHandler}
               />
               Знаешь трех твоих коллег по отделу:
+              <input type="text" className="form__input" placeholder=" " />
             </div>
           </div>
           <div className="sample__form3 mt-2">

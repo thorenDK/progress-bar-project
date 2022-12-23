@@ -25,6 +25,11 @@ export default function CreateList() {
         <h1 className="form__title">Create List</h1>
 
         <div className="form__group">
+          <input name="hrsname" type="text" className="form__input" placeholder=" " />
+          <label className="form__label">HR's name</label>
+        </div>
+
+        <div className="form__group">
           <input name="name" type="text" className="form__input" placeholder=" " />
           <label className="form__label">Name</label>
         </div>

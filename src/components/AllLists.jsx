@@ -26,7 +26,7 @@ export default function AllLists() {
         >
           <p className="card-title">{el.name}</p>
           <p className="card-title">
-            {el.progress}
+            {el.progress || 0}
             %
           </p>
         </div>
