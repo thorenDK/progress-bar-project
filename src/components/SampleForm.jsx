@@ -1,20 +1,26 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
+import { useParams } from 'react-router-dom';
 
-export default function SampleForm({ workername, hrname }) {
-  // const submitHandler = async (event) => {
-  //   event.preventDefault();
-  //   const response = await fetch('/list', {
-  //     method: 'UPDATE',
-  //     headers: {
-  //       'Content-type': 'application/json',
-  //     },
-  //     body: JSON.stringify(Object.fromEntries(new FormData(e.target))),
-  //   });
-  // };
-  // const [check, setCheck] = useState({});
-  // useEffect(() => {
-  //   fetch('/list');
-  // });
+export default function SampleForm({ list, path }) {
+  const [oneList, setOneList] = useState(list);
+
+  const submitHandler = async (e) => {
+    e.preventDefault();
+    const obj = Object.fromEntries(new FormData(e.target));
+    obj.path = path.slice(11);
+    console.log('object', obj);
+    console.log(Object.fromEntries(new FormData(e.target)));
+    const response = await fetch('/sample', {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(obj),
+    });
+    if (response.ok) {
+      window.location = `/sample?id=${oneList?.id}`;
+    }
+  };
 
   return (
     <div
@@ -25,13 +31,13 @@ export default function SampleForm({ workername, hrname }) {
         justifyContent: 'center',
       }}
     >
-      <form>
+      <form onSubmit={submitHandler}>
         <div className="sample__form" style={{ maxWidth: '500px' }}>
-          <p>Привет, {workername}!</p>
+          <p>Привет, {oneList?.name}!</p>
           <p>И добро пожаловать в команду Высокогорья!</p>
           <p>
             Впереди нас ждет интересное путешествие в мир нашей компании, и
-            самым главным проводником будет - {hrname}
+            самым главным проводником будет - {oneList?.hr_id}
           </p>
           <p>
             Мы подготовили для тебя чек-лист на первый день. Процесс выполнения
@@ -47,7 +53,7 @@ export default function SampleForm({ workername, hrname }) {
                 name="one"
                 id="input"
                 type="checkbox"
-                defaultChecked={false}
+                defaultChecked={oneList?.one}
                 // onChange={submitHandler}
               />
               Наставник выдал мне пропуск
@@ -56,7 +62,7 @@ export default function SampleForm({ workername, hrname }) {
               <input
                 name="two"
                 type="checkbox"
-                defaultChecked={false}
+                defaultChecked={oneList?.two}
                 // onChange={submitHandler}
               />
               Наставник сообщил пароль от Wi-Fi
@@ -65,7 +71,7 @@ export default function SampleForm({ workername, hrname }) {
               <input
                 name="three"
                 type="checkbox"
-                defaultChecked={false}
+                defaultChecked={oneList?.three}
                 // onChange={submitHandler}
               />
               Системный администратор выдал мне ноутбук
@@ -74,7 +80,7 @@ export default function SampleForm({ workername, hrname }) {
               <input
                 name="four"
                 type="checkbox"
-                defaultChecked={false}
+                defaultChecked={oneList?.four}
                 // onChange={submitHandler}
               />
               Системный администратор выдал мне доступы к почте
@@ -83,14 +89,14 @@ export default function SampleForm({ workername, hrname }) {
               <input
                 name="five"
                 type="checkbox"
-                defaultChecked={false}
+                defaultChecked={oneList?.five}
                 // onChange={submitHandler}
               />
               Ты отправил(-а) офис-менеджеру на почту список необходимой для
               тебя канцелярии
             </div>
           </div>
-          <div className="sample__form2">
+          <div className="sample__form2 mt-2">
             <p>
               <b>Важно познакомиться с коллегами:</b>
             </p>
@@ -98,7 +104,7 @@ export default function SampleForm({ workername, hrname }) {
               <input
                 name="six"
                 type="checkbox"
-                defaultChecked={false}
+                defaultChecked={oneList?.six}
                 // onChange={submitHandler}
               />
               Ты познакомился (-ась) со своим руководителем
@@ -107,7 +113,7 @@ export default function SampleForm({ workername, hrname }) {
               <input
                 name="seven"
                 type="checkbox"
-                defaultChecked={false}
+                defaultChecked={oneList?.seven}
                 // onChange={submitHandler}
               />
               Ты написал(-а) сообщение в командный чат
@@ -116,13 +122,13 @@ export default function SampleForm({ workername, hrname }) {
               <input
                 name="eight"
                 type="checkbox"
-                defaultChecked={false}
+                defaultChecked={oneList?.eight}
                 // onChange={submitHandler}
               />
-              Напиши имена трех твоих коллег по отделу: <input type="text" />
+              Знаешь трех твоих коллег по отделу:
             </div>
           </div>
-          <div className="sample__form3">
+          <div className="sample__form3 mt-2">
             <p>
               <b>Важно пройти оформление в отделе кадров:</b>
             </p>
@@ -130,7 +136,7 @@ export default function SampleForm({ workername, hrname }) {
               <input
                 name="nine"
                 type="checkbox"
-                defaultChecked={false}
+                defaultChecked={oneList?.nine}
                 // onChange={submitHandler}
               />
               Ты отправил (-а) сканы документов на оформление в отдел кадров
@@ -139,13 +145,13 @@ export default function SampleForm({ workername, hrname }) {
               <input
                 name="ten"
                 type="checkbox"
-                defaultChecked={false}
+                defaultChecked={oneList?.ten}
                 // onChange={submitHandler}
               />
               Ты подписал (-а) соглашение о коммерческой тайне
             </div>
           </div>
-          <div className="sample__form4">
+          <div className="sample__form4 mt-2">
             <p>
               <b>А теперь самое время работать:</b>
             </p>
@@ -153,7 +159,7 @@ export default function SampleForm({ workername, hrname }) {
               <input
                 name="eleven"
                 type="checkbox"
-                defaultChecked={false}
+                defaultChecked={oneList?.eleven}
                 // onChange={submitHandler}
               />
               Получи свою первую задачу у руководителя
@@ -162,14 +168,16 @@ export default function SampleForm({ workername, hrname }) {
               <input
                 name="twelve"
                 type="checkbox"
-                defaultChecked={false}
+                defaultChecked={oneList?.twelve}
                 // onChange={submitHandler}
               />
               Создай подпись в почте по корпоративному шаблону
             </div>
           </div>
           <p>Классного путешествия! Команда Высокой горы 💚</p>
-          <button type="submit">Подтвердить</button>
+          <button type="submit" className="form__button">
+            Подтвердить
+          </button>
         </div>
       </form>
     </div>

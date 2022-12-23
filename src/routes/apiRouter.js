@@ -1,6 +1,8 @@
 import express from 'express';
 import bcrypt from 'bcrypt';
-import { HR } from '../../db/models';
+import { v4 } from 'uuid';
+
+import { HR, Adaptation } from '../../db/models';
 
 const router = express.Router();
 
@@ -11,9 +13,9 @@ router.post('/signup', async (req, res) => {
   if (check) {
     isAdmin = true;
   } else {
-    isAdmin = check;
+    isAdmin = false;
   }
-  const checkEmail = await HR.findOne({ email });
+  const checkEmail = await HR.findOne({ where: { email } });
   if (!checkEmail && name && email && pass) {
     const password = await bcrypt.hash(pass, 7);
     const currHR = await HR.create({
@@ -59,6 +61,40 @@ router.get('/logout', (req, res) => {
   req.session.destroy();
   res.clearCookie('user_sid');
   res.redirect('/signin');
+});
+
+router.post('/list', async (req, res) => {
+  const { name, email } = req.body;
+  const checkEmail = await Adaptation.findOne({ where: { email } });
+  if (!checkEmail && name && email) {
+    const currAdaptation = await Adaptation.create({
+      name,
+      email,
+      one: false,
+      two: false,
+      three: false,
+      four: false,
+      five: false,
+      six: false,
+      seven: false,
+      eight: false,
+      nine: false,
+      ten: false,
+      eleven: false,
+      twelve: false,
+      hr_id: req.session?.user?.id,
+    });
+    const randomId = v4();
+    await Adaptation.update(
+      {
+        url: `http://localhost:3000/sample?id=${currAdaptation.id}&rid=${randomId}`,
+      },
+      { where: { id: currAdaptation.id } }
+    );
+    res.sendStatus(200);
+  } else {
+    res.sendStatus(401);
+  }
 });
 
 export default router;

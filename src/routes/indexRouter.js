@@ -1,4 +1,5 @@
 import express from 'express';
+import { Adaptation } from '../../db/models';
 
 const router = express.Router();
 
@@ -20,6 +21,17 @@ router.get('/allLists', (req, res) => {
 
 router.get('/myLists', (req, res) => {
   res.render('Layout');
+});
+
+router.get('/list', (req, res) => {
+  res.render('Layout');
+});
+
+router.get('/sample', async (req, res) => {
+  const { id } = req.query;
+  const list = await Adaptation.findByPk(id);
+  res.render('Layout', { list });
+  console.log(list);
 });
 
 export default router;

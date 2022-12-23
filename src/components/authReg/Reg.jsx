@@ -30,7 +30,7 @@ export default function Reg() {
             className="form__input"
             placeholder=" "
           />
-          <label className="form__label">Имя</label>
+          <label className="form__label">Name</label>
         </div>
 
         <div className="form__group">
@@ -40,7 +40,7 @@ export default function Reg() {
             className="form__input"
             placeholder=" "
           />
-          <label className="form__label">Адрес электронной почты</label>
+          <label className="form__label">Email</label>
         </div>
 
         <div className="form__group">
@@ -50,7 +50,7 @@ export default function Reg() {
             className="form__input"
             placeholder=" "
           />
-          <label className="form__label">Пароль</label>
+          <label className="form__label">Password</label>
         </div>
 
         <div>
