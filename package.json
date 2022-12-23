@@ -7,7 +7,7 @@
     "webpack": "webpack -wd eval-source-map",
     "dev": "babel-node src/server.js",
     "start": "webpack -d eval-source-map && babel-node src/server.js"
-    },
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/thorenDK/progress-bar-project.git"
@@ -48,6 +48,7 @@
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.5.0",
     "sequelize": "^6.28.0",
-    "session-file-store": "^1.5.0"
+    "session-file-store": "^1.5.0",
+    "uuid": "^9.0.0"
   }
 }

@@ -1,5 +1,5 @@
 import express from 'express';
-import { HR } from '../../db/models';
+import { HR, Adaptation } from '../../db/models';
 
 const router = express.Router();
 
@@ -28,6 +28,16 @@ router.get('/users', async (req, res) => {
     order: [['createdAt', 'ASC']],
   });
   res.render('Layout', { allUsers });
+});
+router.get('/list', (req, res) => {
+  res.render('Layout');
+});
+
+router.get('/sample', async (req, res) => {
+  const { id } = req.query;
+  const list = await Adaptation.findByPk(id);
+  res.render('Layout', { list });
+  console.log(list);
 });
 
 export default router;

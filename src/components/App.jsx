@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Route, Routes } from 'react-router-dom';
 
 import MainPage from './MainPage';
@@ -9,7 +9,15 @@ import Users from './Users';
 import User from './User';
 // import AddCard from './AddCard';
 
-export default function App({ user, allUsers }) {
+import AllLists from './AllLists';
+import MyLists from './MyLists';
+import SampleForm from './SampleForm';
+import CreateList from './CreateList';
+
+export default function App({
+  user, list, path, allUsers,
+}) {
+  const [oneList, setOneList] = useState(list);
   return (
     <>
       <NavBar user={user} />
@@ -17,6 +25,15 @@ export default function App({ user, allUsers }) {
         <Route path="/" element={<MainPage />} />
         <Route path="/signin" element={<Auth />} />
         <Route path="/signup" element={<Reg />} />
+        <Route path="/list" element={<CreateList />} />
+        <Route
+          path="/sample"
+          element={<SampleForm list={oneList} path={path} />}
+        />
+        <Route path="/allLists" element={<AllLists />} />
+        <Route path="/myLists" element={<MyLists />} />
+        {/* <Route path="/sample" element={<SampleForm />} /> */}
+        <Route path="" />
         <Route path="/users" element={<Users allUsers={allUsers} />} />
         {/* <Route path="/addcard" element={<AddCard />} /> */}
 

@@ -21,31 +21,52 @@ export default function Reg() {
   return (
     <form onSubmit={submitHandler} className="loginPage">
       <div className="form">
-
         <h1 className="form__title">Регистрация</h1>
 
         <div className="form__group">
-          <input name="name" type="text" className="form__input" placeholder=" " />
+          <input
+            name="name"
+            type="text"
+            className="form__input"
+            placeholder=" "
+          />
           <label className="form__label">Name</label>
         </div>
 
         <div className="form__group">
-          <input name="email" type="email" className="form__input" placeholder=" " />
+          <input
+            name="email"
+            type="email"
+            className="form__input"
+            placeholder=" "
+          />
           <label className="form__label">Email</label>
         </div>
 
         <div className="form__group">
-          <input name="password" type="password" className="form__input" placeholder=" " />
+          <input
+            name="password"
+            type="password"
+            className="form__input"
+            placeholder=" "
+          />
           <label className="form__label">Password</label>
         </div>
 
         <div>
-          <input className="check mb-3" type="checkbox" id="scales" name="check" defaultChecked={false} />
+          <input
+            className="check mb-3"
+            type="checkbox"
+            id="scales"
+            name="check"
+            defaultChecked={false}
+          />
           <label htmlFor="scales">Admin</label>
         </div>
 
-        <button type="submit" className="form__button">Регистрация</button>
-
+        <button type="submit" className="form__button">
+          Регистрация
+        </button>
       </div>
     </form>
   );
