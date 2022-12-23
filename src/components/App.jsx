@@ -5,8 +5,10 @@ import MainPage from './MainPage';
 import Auth from './authReg/Auth';
 import Reg from './authReg/Reg';
 import NavBar from './NavBar';
+import Users from './Users';
+import User from './User';
 
-export default function App({ user }) {
+export default function App({ user, allUsers }) {
   return (
     <>
       <NavBar user={user} />
@@ -14,8 +16,8 @@ export default function App({ user }) {
         <Route path="/" element={<MainPage />} />
         <Route path="/signin" element={<Auth />} />
         <Route path="/signup" element={<Reg />} />
-        <Route path="" />
-        <Route path="" />
+        <Route path="/users" element={<Users allUsers={allUsers} />} />
+
       </Routes>
     </>
   );

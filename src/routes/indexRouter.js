@@ -1,4 +1,5 @@
 import express from 'express';
+import { HR } from '../../db/models';
 
 const router = express.Router();
 
@@ -20,6 +21,13 @@ router.get('/allLists', (req, res) => {
 
 router.get('/myLists', (req, res) => {
   res.render('Layout');
+});
+
+router.get('/users', async (req, res) => {
+  const allUsers = await HR.findAll({
+    order: [['createdAt', 'ASC']],
+  });
+  res.render('Layout', { allUsers });
 });
 
 export default router;

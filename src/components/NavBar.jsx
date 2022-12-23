@@ -25,7 +25,7 @@ export default function NavBar({ user }) {
             )}
             {user?.isAdmin && (
               <li className="nav-item">
-                <a className="nav-link active" href="/">Пользователи</a>
+                <a className="nav-link active" href="/users">Пользователи</a>
               </li>
             )}
             {!user ? (
