@@ -54,7 +54,7 @@ export default function User({ oneUser, onDelete }) {
         : (
           <li className="list-group-item">
             <label style={{ fontSize: '2rem', color: `${userStatus ? 'green' : 'black'}` }} className="form-check-label" htmlFor="firstCheckbox">
-              {oneUser.username}
+              {oneUser.name}
             </label>
             <div className="d-flex justify-content-around">
               <button onClick={() => { setShowInput(true); }} style={{ marginRight: '.5rem' }} type="button" className="btn btn-warning btn-sm">Изменить имя сотрудника</button>
