@@ -14,6 +14,7 @@ module.exports = {
       {
         name: 'Olga',
         email: 'olga@5',
+        hrsname: 'Pavel',
         url: 'http://localhost:3000/myLists/my/1',
         progress: 0,
         one: 0,

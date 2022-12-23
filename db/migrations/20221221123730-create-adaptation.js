@@ -14,6 +14,9 @@ module.exports = {
       email: {
         type: Sequelize.STRING,
       },
+      hrsname: {
+        type: Sequelize.STRING,
+      },
       url: {
         type: Sequelize.TEXT,
       },
