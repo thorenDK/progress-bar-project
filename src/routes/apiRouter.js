@@ -7,9 +7,7 @@ import { HR, Adaptation } from '../../db/models';
 const router = express.Router();
 
 router.post('/signup', async (req, res) => {
-  const {
-    name, email, password: pass, check,
-  } = req.body;
+  const { name, email, password: pass, check } = req.body;
   let isAdmin;
 
   if (check) {
@@ -91,7 +89,12 @@ router.post('/list', async (req, res) => {
       hr_id: req.session?.user?.id,
     });
     const randomId = v4();
-    await Adaptation.update({ url: `http://localhost:3000/sample?id=${currAdaptation.id}&rid=${randomId}` }, { where: { id: currAdaptation.id } });
+    await Adaptation.update(
+      {
+        url: `http://localhost:3000/sample?id=${currAdaptation.id}&rid=${randomId}`,
+      },
+      { where: { id: currAdaptation.id } }
+    );
     res.sendStatus(200);
   } else {
     res.sendStatus(401);

@@ -27,10 +27,11 @@ router.get('/list', (req, res) => {
   res.render('Layout');
 });
 
-router.get('/sample/:id', async (req, res) => {
-  const { id } = req.params;
+router.get('/sample', async (req, res) => {
+  const { id } = req.query;
   const list = await Adaptation.findByPk(id);
   res.render('Layout', { list });
+  console.log(list);
 });
 
 export default router;

@@ -7,10 +7,20 @@ const router = express.Router();
 router.patch('/', async (req, res) => {
   try {
     const {
-      one, two, three, four, five, six, seven, eight, nine, ten, eleven, twelve,
+      one,
+      two,
+      three,
+      four,
+      five,
+      six,
+      seven,
+      eight,
+      nine,
+      ten,
+      eleven,
+      twelve,
+      path,
     } = req.body;
-
-    console.log(one, two, three, four, five, six, seven, eight, nine, ten, eleven, twelve, '----------------------------------------------------------');
 
     let check1 = false;
     let check2 = false;
@@ -63,12 +73,38 @@ router.patch('/', async (req, res) => {
     if (ten) teN = 8.3;
     if (eleven) eleveN = 8.3;
     if (twelve) twelvE = 8.3;
-    const sum = onE + twO + threE + fouR + fivE + siX + seveN + eighT + ninE + teN + eleveN + twelvE;
+    const sum =
+      onE +
+      twO +
+      threE +
+      fouR +
+      fivE +
+      siX +
+      seveN +
+      eighT +
+      ninE +
+      teN +
+      eleveN +
+      twelvE;
     const progress = Math.ceil(sum);
-    const id = 1; // Нужно написать контролируемый инпут в компоненте SampleForm через useState
-    await Adaptation.update({
-      progress, one: check1, two: check2, three: check3, four: check4, five: check5, six: check6, seven: check7, eight: check8, nine: check9, ten: check10, eleven: check11, twelve: check12,
-    }, { where: { id } });
+    await Adaptation.update(
+      {
+        progress,
+        one: check1,
+        two: check2,
+        three: check3,
+        four: check4,
+        five: check5,
+        six: check6,
+        seven: check7,
+        eight: check8,
+        nine: check9,
+        ten: check10,
+        eleven: check11,
+        twelve: check12,
+      },
+      { where: { id: path } }
+    );
     res.sendStatus(200);
   } catch (e) {
     console.log(e);

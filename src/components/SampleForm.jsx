@@ -1,16 +1,21 @@
 import React, { useState } from 'react';
+import { useParams } from 'react-router-dom';
 
-export default function SampleForm({ list }) {
+export default function SampleForm({ list, path }) {
   const [oneList, setOneList] = useState(list);
 
   const submitHandler = async (e) => {
-    // e.preventDefault();
+    e.preventDefault();
+    const obj = Object.fromEntries(new FormData(e.target));
+    obj.path = path.slice(11);
+    console.log('object', obj);
+    console.log(Object.fromEntries(new FormData(e.target)));
     const response = await fetch('/sample', {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify(Object.fromEntries(new FormData(e.target))),
+      body: JSON.stringify(obj),
     });
     if (response.ok) {
       window.location = `/sample?id=${oneList?.id}`;
@@ -28,18 +33,11 @@ export default function SampleForm({ list }) {
     >
       <form onSubmit={submitHandler}>
         <div className="sample__form" style={{ maxWidth: '500px' }}>
-          <p>
-            Привет,
-            {' '}
-            {oneList?.name}
-            !
-          </p>
+          <p>Привет, {oneList?.name}!</p>
           <p>И добро пожаловать в команду Высокогорья!</p>
           <p>
             Впереди нас ждет интересное путешествие в мир нашей компании, и
-            самым главным проводником будет -
-            {' '}
-            {oneList?.hrsname}
+            самым главным проводником будет - {oneList?.hrsname}
           </p>
           <p>
             Мы подготовили для тебя чек-лист на первый день. Процесс выполнения
@@ -178,7 +176,9 @@ export default function SampleForm({ list }) {
             </div>
           </div>
           <p>Классного путешествия! Команда Высокой горы 💚</p>
-          <button type="submit" className="form__button">Подтвердить</button>
+          <button type="submit" className="form__button">
+            Подтвердить
+          </button>
         </div>
       </form>
     </div>
