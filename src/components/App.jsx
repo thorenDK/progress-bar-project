@@ -10,7 +10,6 @@ import MyLists from './MyLists';
 import SampleForm from './SampleForm';
 import CreateList from './CreateList';
 
-
 export default function App({ user, list }) {
   const [oneList, setOneList] = useState(list);
 

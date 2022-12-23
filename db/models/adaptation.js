@@ -19,6 +19,7 @@ module.exports = (sequelize, DataTypes) => {
   Adaptation.init({
     name: DataTypes.STRING,
     email: DataTypes.STRING,
+    hrsname: DataTypes.STRING,
     url: DataTypes.TEXT,
     progress: DataTypes.INTEGER,
     one: DataTypes.BOOLEAN,
