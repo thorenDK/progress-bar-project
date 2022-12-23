@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 
 export default function Auth() {
   const submitHandler = async (e) => {
@@ -25,13 +25,17 @@ export default function Auth() {
         <h1 className="form__title">Авторизация</h1>
 
         <div className="form__group">
-          <input name="email" type="text" className="form__input" placeholder=" " />
-          <label className="form__label">Email</label>
+          <input name="email" type="text" id="emailInput" className="form__input" placeholder=" " />
+          <label className="form__label" htmlFor="emailInput">
+            Email
+          </label>
         </div>
 
         <div className="form__group">
-          <input name="password" type="pass" className="form__input" placeholder=" " />
-          <label className="form__label">Password</label>
+          <input name="password" type="pass" id="passwordInput" className="form__input" placeholder=" " />
+          <label className="form__label" htmlFor="passwordInput">
+            Password
+          </label>
         </div>
 
         <button type="submit" className="form__button">Авторизация</button>
